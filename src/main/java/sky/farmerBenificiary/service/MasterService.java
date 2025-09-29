@@ -2,16 +2,16 @@ package sky.farmerBenificiary.service;
 
 import java.util.List;
 
-import sky.farmerBenificiary.payloads.farmerPayload;
+import sky.farmerBenificiary.payloads.MasterPayload;
 
 public interface MasterService {
 
-	List<farmerPayload> getStateList(farmerPayload requestBean);
+	List<MasterPayload> getStateList(MasterPayload requestBean);
 
-	List<farmerPayload> getDistrictList(farmerPayload requestBean);
+	List<MasterPayload> getDistrictList(MasterPayload requestBean);
 
-	List<farmerPayload> getTalukaList(farmerPayload requestBean);
+	List<MasterPayload> getTalukaList(MasterPayload requestBean);
 
-	List<farmerPayload> getVillageList(farmerPayload requestBean);
+	List<MasterPayload> getVillageList(MasterPayload requestBean);
 
 }

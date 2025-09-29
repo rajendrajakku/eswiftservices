@@ -10,4 +10,13 @@ import lombok.NoArgsConstructor;
 public class ApiResponse {
 	private long responseCode;
  	private String responseMessage;
+	public void setResponseMessage(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setResponseCode(long value) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

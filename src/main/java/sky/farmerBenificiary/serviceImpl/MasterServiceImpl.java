@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import sky.farmerBenificiary.payloads.MasterPayload;
 import sky.farmerBenificiary.payloads.farmerPayload;
 import sky.farmerBenificiary.repository.MasterDao;
 import sky.farmerBenificiary.service.MasterService;
@@ -23,8 +24,8 @@ public class MasterServiceImpl implements MasterService{
 	MasterDao oMasterDao;
 	
 	@Override
-	public List<farmerPayload> getStateList(farmerPayload requestBean) {
-		List<farmerPayload> stateList= new ArrayList<farmerPayload>();
+	public List<MasterPayload> getStateList(MasterPayload requestBean) {
+		List<MasterPayload> stateList= new ArrayList<MasterPayload>();
 		Connection con=null;
 		try {
 			con = dataSource.getConnection();
@@ -44,21 +45,53 @@ public class MasterServiceImpl implements MasterService{
 	}
 
 	@Override
-	public List<farmerPayload> getDistrictList(farmerPayload requestBean) {
+	public List<MasterPayload> getDistrictList(MasterPayload requestBean) {
+		List<MasterPayload> districtList= new ArrayList<MasterPayload>();
+		Connection con=null;
+		try {
+			con = dataSource.getConnection();
+			districtList =oMasterDao.getDistrictList(requestBean, con);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (!con.isClosed()) {
+					con.close();
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+		return districtList;
+	}
+
+	@Override
+	public List<MasterPayload> getTalukaList(MasterPayload requestBean) {
+		List<MasterPayload> talukaList= new ArrayList<MasterPayload>();
+		Connection con=null;
+		try {
+			con = dataSource.getConnection();
+			talukaList =oMasterDao.talukaList(requestBean, con);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (!con.isClosed()) {
+					con.close();
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+		return talukaList;
+	}
+
+	@Override
+	public List<MasterPayload> getVillageList(MasterPayload requestBean) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public List<farmerPayload> getTalukaList(farmerPayload requestBean) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public List<farmerPayload> getVillageList(farmerPayload requestBean) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

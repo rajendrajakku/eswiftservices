@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
-import sky.farmerBenificiary.payloads.farmerPayload;
+import sky.farmerBenificiary.payloads.MasterPayload;
+import sky.farmerBenificiary.payloads.MasterPayload;
 import sky.farmerBenificiary.service.MasterService;
 
 @RestController
@@ -24,53 +25,45 @@ public class MastersController {
 	MasterService oMasterService;
 	
     @PostMapping("/getStateList")
-    public ResponseEntity<List<farmerPayload>> getStateList(@RequestBody farmerPayload requestBean ) {
-        //logs.info("Inside MastersController => getStateList");
-        List<farmerPayload> result = new ArrayList<>();
+    public ResponseEntity<List<MasterPayload>> getStateList(@RequestBody MasterPayload requestBean ) {
+        List<MasterPayload> result = new ArrayList<>();
         try {
         	result =oMasterService.getStateList(requestBean);
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();e.getMessage();
 		}
-        //log.info("Exit From MastersController => getStateList");
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
     @PostMapping("/getDistrictList")
-    public ResponseEntity<List<farmerPayload>> getDistrictList(@RequestBody farmerPayload requestBean ) {
-        //logs.info("Inside MastersController => getStateList");
-        List<farmerPayload> result = new ArrayList<>();
+    public ResponseEntity<List<MasterPayload>> getDistrictList(@RequestBody MasterPayload requestBean ) {
+        List<MasterPayload> result = new ArrayList<>();
         try {
         	result =oMasterService.getDistrictList(requestBean);
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();e.getMessage();
 		}
-        //log.info("Exit From MastersController => getStateList");
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
     
     @PostMapping("/getTalukaList")
-    public ResponseEntity<List<farmerPayload>> getTalukaList(@RequestBody farmerPayload requestBean ) {
-        //logs.info("Inside MastersController => getStateList");
-        List<farmerPayload> result = new ArrayList<>();
+    public ResponseEntity<List<MasterPayload>> getTalukaList(@RequestBody MasterPayload requestBean ) {
+        List<MasterPayload> result = new ArrayList<>();
         try {
         	result =oMasterService.getTalukaList(requestBean);
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();e.getMessage();
 		}
-        //log.info("Exit From MastersController => getStateList");
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
     
     @PostMapping("/getVillageList")
-    public ResponseEntity<List<farmerPayload>> getVillageList(@RequestBody farmerPayload requestBean ) {
-        //logs.info("Inside MastersController => getStateList");
-        List<farmerPayload> result = new ArrayList<>();
+    public ResponseEntity<List<MasterPayload>> getVillageList(@RequestBody MasterPayload requestBean ) {
+        List<MasterPayload> result = new ArrayList<>();
         try {
         	result =oMasterService.getVillageList(requestBean);
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();e.getMessage();
 		}
-        //log.info("Exit From MastersController => getStateList");
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
    
