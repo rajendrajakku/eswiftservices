@@ -7,6 +7,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,7 +19,7 @@ import sky.farmerBenificiary.utils.ErrorConstants;
 @Service
 public class farmerBeneficiaryServiceImpl implements farmerBeneficiaryService{
 	
-	// @Value("${file.upload-dir}")
+	@Value("${file.upload-dir}")
 	 private String uploadDir;
 
 
